@@ -21,7 +21,7 @@ key = int(k, 16)
 # Create a socket connection
 sender_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 receiver_ip = 'RECEIVER_IP_ADDRESS'
-receiver_port = RECEIVER_PORT_NUMBER
+receiver_port = 'RECEIVER_PORT_NUMBER'
 receiver_address = (receiver_ip, receiver_port)
 sender_socket.connect(receiver_address)
 
