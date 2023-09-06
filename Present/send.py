@@ -4,7 +4,7 @@ import Padding
 import sys
 import socket
 
-text = "help"
+text = "helphel"
 k = "00000000000000000000"
 
 if len(sys.argv) > 1:
@@ -24,10 +24,11 @@ text = Padding.appendPadding(text, blocksize=8, mode='CMS')
 cipher = Present(key)
 
 encrypted = cipher.encrypt(text.encode())
+print(type(encrypted))
 
 # Create a socket connection
 sender_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-receiver_ip = 'RECEIVER_IP_ADDRESS'
+receiver_ip = '10.0.42.218'
 receiver_port = 8000
 receiver_address = (receiver_ip, receiver_port)
 sender_socket.connect(receiver_address)

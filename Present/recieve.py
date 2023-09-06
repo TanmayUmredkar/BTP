@@ -6,7 +6,7 @@ import socket
 
 # Create a socket connection
 receiver_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-receiver_ip = 'RECEIVER_IP_ADDRESS'
+receiver_ip = '10.0.42.218'
 receiver_port = 8000
 receiver_address = (receiver_ip, receiver_port)
 receiver_socket.bind(receiver_address)
