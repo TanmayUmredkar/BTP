@@ -18,8 +18,13 @@ print("Connected to", sender_address)
 message_length_bytes = connection.recv(4)
 message_length = int.from_bytes(message_length_bytes, byteorder='big')
 
-# Receive encrypted message
-encrypted = connection.recv(message_length)
+# Receive encrypted message in chunks and assemble it
+encrypted = b""
+while len(encrypted) < message_length:
+    chunk = connection.recv(min(message_length - len(encrypted), 1024))  # Adjust chunk size as needed
+    if not chunk:
+        break
+    encrypted += chunk
 
 # Close the connection
 connection.close()
